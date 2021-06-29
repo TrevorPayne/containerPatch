@@ -1,92 +1,82 @@
-/*
-------------------------------------------
-Prettier login screen by u/TheEpicSnowWolf
-based on code by u/bass-blowfish
-------------------------------------------
-*/
+/**
+==========================NICER CSS SETUP=============================
+**/
 
-/* Hide world description and session info */
-#join-game .right.flexcol, #join-game #world-title h1, #join-game .app h1, #join-game .left.flexcol .app:nth-of-type(2) {
-    display: none;
-}
-
-/* Login mask width and position */
-#join-game {
-  width: 400px !important;
-  top: calc(50% - 350px);
-}
-
-/* Logo as world title */
-#join-game #world-title {
-  background: url("../ui/RFI-Logo-White-on-Transp.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  height: 120px !important;
-  border: none;
-  box-shadow: none;
-}
-
-/* D&D logo above Foundry watermark */
-body.vtt.players .watermark:before {
-  display: block;
-  content: " ";
-  background: url("../ui/Pathfinder.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 100%;
-  height: 25px;
-  margin-top: -30px;
-  margin-bottom: 5px;
-}
-
-/* Restyle inputs */
-#join-game input, #join-game select, #join-game button {
-  min-height: 40px;
-  padding: 10px !important;
-  border: none !important;
-  font-size: 15px;
-  width: 100%;
-}
-
-/* Restyle buttons */
-#join-game button {
-  background: rgb(150, 12, 16);
-  border: none;
-  color: #fff;
-  margin-bottom: 0px !important;
-}
-
-#join-game button:hover {
-  background: rgb(228, 9, 19);
-  box-shadow: none;
-}
-
-/* Top align form labels */
-#join-game .form-group {
-  clear: both;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
-  margin-top: 0;
-  overflow: hidden;
-}
-
-#join-game .form-group label {
-  line-height: 31px;
-  width: 100%;
-}
-
-/* Hide placeholder text */
-#join-game input[type="password"]::placeholder {
-  color:transparent;
-}
-
-/* Change login button icon */
-#join-game button[name="join"] i.fas.fa-check {
+/* Hide world description, labels(select user, pass, admin pass) and session info */
+#join-game .right.flexcol, #join-game .join-body .app .form-group label, body.vtt.players .watermark, #join-game .left.flexcol .app:nth-of-type(2) {
   display: none;
 }
 
-#join-game button[name="join"]:after {
-  content: "\1F846";
+/* Hide default background textures, frames */
+#setup #join-game .app {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* Set the layout model we'll be working with */
+#setup {
+  align-items: flex-start;
+}
+
+/* Set the width and position for the box(es).*/
+#join-game {
+/* If you want to make the box(es) wider (to fit a bigger title), change width here.  */
+  width: 220px;
+  top: calc(50% - 200px);
+/* Make the box(es) hug left side */
+  margin: 50px;
+/* Center all the text */
+  text-align: center;
+}
+
+/* Set the gray background */
+#setup #join-game .app {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+#setup #join-game #world-title {
+/* Y-axis space for the world name. If you want more height space for the title, change this */
+  height: 90px;
+/* Center world name */
+  display: flex;
+  align-items: center;
+/* Unify the "title" box with the "join game session" box */
+  margin-bottom: 0;
+}
+
+/* Keep the lines in the tile close together. Default: 2 */
+#setup #join-game #world-title h1 {
+  line-height: 1;
+}
+
+/* Unify the "Join Game Session" box with the "Setup" box. */
+#setup #join-game .join-body .app {
+  margin-bottom: 0;
+}
+
+/* Hide the subtitles that are identical with the text inside the buttons */
+/* Methinks it looks pretty intuitive like this. If you want the text back delete this section. */
+#setup #join-game .join-body .left .app h1 {
+  display: none;
+}
+
+/* Make the input fields a bit shorter */
+#setup #join-game .join-body .app .form-group input,
+#setup #join-game .join-body .app .form-group select {
+  height: 25px;
+  width: 100%;
+}
+
+#setup #join-game .join-body button {
+/* Center, color, resize the buttons */
+  margin: 0;
+  background-color: #7c2829;
+  color: white;
+  border-color: #491718;
+  height: 40px;
+}
+#setup #join-game .join-body button:hover {
+  background-color: #952f30;
 }
